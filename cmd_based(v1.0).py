@@ -3,6 +3,10 @@
 #This version of program uses pyttsx3 module's speak function to convey messages.
 #Pied piper is a fictional company part of my favourite sitcom "Silicon Valley"
 
+#This is the first program i created and has been update over the days.
+""" As of version 1.0 it can only perform basic task of launching other programs"""
+
+
 import webbrowser
 
 
