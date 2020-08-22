@@ -1,8 +1,11 @@
 #Welcome to my python program ver 2.2
 
-""">>>Patch Notes<<<:1.Added chat bot functionality(still very much in infancy).
-		     2. Use of random() module learned while updating.
-		    		     
+""">>>Patch Notes<<<:1.Added functionality to deal with negate statements.
+		     2.Fixed several bugs related to termination of programs.
+		     3.Use of split() function learned while updating.
+		     4.Increased the speed of vocal ticks for default narration.
+		     5.Added chat bot functionality(still very much in infancy).
+
 Salient features of the chatbot :
 1.The jokes/facts order is always random meaning if u talk to it again it will not tell u the jokes in the same order.
 2.The jokes/facts told by the chatbot will always be different from each other and are unique in each pass.
@@ -12,7 +15,6 @@ Salient features of the chatbot :
 #Written by Pulkit Vaish
 #This version of program uses pyttsx3 module's speak function to convey messages.
 #Pied piper is a fictional company part of my favourite sitcom "Silicon Valley"
-#The chatbot is limited by its current source of information which is this file itself.
 
 import webbrowser	#To provide links to various websites.
 import time			#To generate timing for bad puns
@@ -64,7 +66,7 @@ while done!=1 :
 			pyttsx3.speak("What else can i do for you?")
 		print("\nPlease enter your command: ",end='')
 		p = input()
-		flag=1
+		flag=1	#User has already given their first correct command
 		if(p==" "):
 			pyttsx3.speak("I am still waiting for thy command!")
 			flag=0
@@ -507,9 +509,171 @@ while done!=1 :
 			elif("3" in sire):
 				token=0
 				storytime=1
-		
+			if((token==1)):
+				
+				while((joker==1) or (ted==1)):
+					if(joker==1):
+						k=0
+						j=len1=len(jokes)-1			 #j keeps track of previous length and len1 keeps track of new length
+						joe = random.randint(0,10) 	 # Change the upper limit here to whatever number of jokes you want to include in ur pgm
+						if(len(jokes)+1<=11):			 #This total number of jokes + anchor ele
+							while((jokes[k]!=joe) and (k<j)):
+								k=k+1
+							if((jokes[k]==joe) and (k==j)):	  #if joke is same as the last one , dont read it
+								joe = random.randint(0,10)
+							elif((jokes[k]==joe) and (k!=j)): #if joke is same as any of those told before
+								joe = random.randint(0,10)
+							else :
+								jokes.append(joe) 	           #if the joke was new, add it to old jokes list		
+								len1=len1+1
+								
+						else :
+							print("Sorry I am all of out of jokes !")
+							joker=0
+					
+					if(ted==1):
+						k=0
+						ft=len2=len(fact)-1 		#ft keeps track of previous length and len2 keeps track of new length
+						fac = random.randint(0,10)  # Change the upper limit here to whatever number of facts you want to include in ur pgm
+						if(len(fact)+1<=11):			#This total number of facts + anchor ele
+							while((fact[k]!=fac) and (k<ft)):
+								k=k+1
+							if((fact[k]==fac) and (k==ft)):	  #if fact is same as the last one , dont read it
+								fac = random.randint(0,10)
+							elif((fact[k]==fac) and (k!=ft)): #if fact is same as any of those told before
+								fac = random.randint(0,10)
+							else :
+								fact.append(fac) 	           #if the fact was new, add it to old fact list		
+								len2=len2+1
+								
+						else :
+							print("Sorry I am all of out of facts !")
+							ted=0
+					
+					if((mood==1) and (joker==1)):
+						if(len1>j):
+							j=len(jokes)-1
+							if(jokes[j]==0):
+								pyttsx3.speak("Heres a joke coming right up for you")
+								pyttsx3.speak("What has four wheels and flies?")
+								time.sleep(1)
+								pyttsx3.speak("A garbage truck!")
+							if(jokes[j]==1):
+								pyttsx3.speak("Heres a fresh joke coming right up for you")
+								pyttsx3.speak("Did you hear about the crook who stole a calendar?")
+								pyttsx3.speak("He got twelve months.")
+							if(jokes[j]==2):
+								pyttsx3.speak("Here comes a sizzling joke right up for you")
+								pyttsx3.speak("I've just written a song about tortillas")
+								pyttsx3.speak("actually, its more of a rap.")
+							if(jokes[j]==3):
+								pyttsx3.speak("Heres a mood refreshing joke coming right up for you")
+								pyttsx3.speak("Why do bees hum?")
+								time.sleep(1)
+								pyttsx3.speak(" cause They don’t remember the lyrics!")
+							if(jokes[j]==4):
+								pyttsx3.speak("Heres a cracking joke coming right up for you")
+								pyttsx3.speak("Don’t spell part backwards. ")
+								time.sleep(1)
+								pyttsx3.speak("Its a trap.")
+							if(jokes[j]==5):
+								pyttsx3.speak("Heres a joke coming right up for you")
+								pyttsx3.speak("Don’t trust atoms")
+								time.sleep(1)
+								pyttsx3.speak("they make up everything")
+							if(jokes[j]==6):
+								pyttsx3.speak("Heres a mood refreshing joke coming right up for you")
+								pyttsx3.speak("Rest In Peace boiled water.")
+								time.sleep(1)
+								pyttsx3.speak(" You will be mist.")
+							if(jokes[j]==7):
+								pyttsx3.speak("Here comes a sizzling joke right up for you")
+								pyttsx3.speak("The future, the present and the past walked into a bar. ")
+								time.sleep(1)
+								pyttsx3.speak("Things got a little tense.")
+							if(jokes[j]==8):
+								pyttsx3.speak("Heres a cracking joke coming right up for you")
+								pyttsx3.speak("Where there’s a will,")
+								time.sleep(1)
+								pyttsx3.speak(" there’s a relative.")
+							if(jokes[j]==9):
+								pyttsx3.speak("Heres a mood refreshing joke coming right up for you")
+								pyttsx3.speak("if Atheism was an organisation, what sort of organisation do you think will it be?")
+								time.sleep(1)
+								pyttsx3.speak(" a non-prophet organization.")
+							if(jokes[j]==10):
+								pyttsx3.speak("Here comes a sizzling joke right up for you")
+								pyttsx3.speak("Did you hear about the guy who got hit in the head with a can of soda? ")
+								time.sleep(1)
+								pyttsx3.speak("He didn’t get hurt because it was a soft drink.")
+							
+							if(sorry<3):	
+								pyttsx3.speak("Did you like the joke?")						
+								print("Did you like the joke? ",end=' ')
+								op=input()
+								if((("no" in op) or ("terrible" in op) or ("bad" in op) or ("n" in op)) and (sorry < 3)):
+									pyttsx3.speak("Oh I am sorry. Im still in developmental stage")
+									sorry=sorry+1
+							print("\nWould you like to hear another joke <y/n>? :",end='')
+							pyttsx3.speak("Would you like to hear another joke?")
+							ok=input()
+							if("y" in ok):
+								joker=1
+							else:
+								joker=ted=0	
+						
+					if((mood==2) and (ted==1)):
+						if(len2>ft):
+							ft=len(fact)-1
+							if(fac==0):
+								pyttsx3.speak("Here is a fun fact for you.")
+								pyttsx3.speak("A flock of crows is known as a murder.")
+							if(fac==1):
+								pyttsx3.speak("Here is a fun fact for you.")
+								pyttsx3.speak("Movie trailers were originally shown after the movie, which is why they were called trailers.")
+							if(fac==2):
+								pyttsx3.speak("Here is a fun fact for you.")
+								pyttsx3.speak("In the 16th Century, Turkish women could initiate a divorce if their husbands did not pour coffee for them.")
+							if(fac==3):
+								pyttsx3.speak("Here is a fun fact for you.")
+								pyttsx3.speak("The first alarm clock could only ring at 4 a.m.")
+							if(fac==4):
+								pyttsx3.speak("Here is a fun fact for you.")
+								pyttsx3.speak("Banging your head against a wall for one hour burns 150 calories.")
+							if(fac==5):
+								pyttsx3.speak("Here is a fun fact for you.")
+								pyttsx3.speak("It snowed in the Sahara desert for 30 minutes on the 18 of February 1979.")
+							if(fac==6):
+								pyttsx3.speak("Here is a fun fact for you.")
+								pyttsx3.speak("Mike Tyson once offered a zoo attendant 10,000 dollars to let him fight a gorilla.")
+							if(fac==7):
+								pyttsx3.speak("Here is a fun fact for you.")
+								pyttsx3.speak("Birds dont urinate")
+							if(fac==8):
+								pyttsx3.speak("Here is a fun fact for you.")
+								pyttsx3.speak("An apple, potato, and onion all taste the same if you eat them with your nose plugged.")
+							if(fac==9):
+								pyttsx3.speak("Here is a fun fact for you.")
+								pyttsx3.speak("The average person walks the equivalent of five times around the world in their lifetime.")
+							if(fac==10):
+								pyttsx3.speak("Here is a fun fact for you.")
+								pyttsx3.speak("Nutella was invented during WWII, when hazelnuts were mixed into chocolate to extend chocolate rations.")
+							if(sorry==3):
+								pyttsx3.speak("Did you like the fun fact?")
+								print("Did you like the fun fact?:",end='')
+								op=input()
+								if((("no" in op) or ("terrible" in op) or ("bad" in op) or ("n" in op)) and (sorry<3)):
+									pyttsx3.speak("Oh I am sorry. Im still in developmental stage")
+									sorry=sorry+1
+							print("\nWould you like to hear another fun fact<y/n>?:",end='')
+							pyttsx3.speak("Would you like to hear another fun fact?")
+							ok=input()
+							if("y" in ok):
+								ted=1
+							else:	
+								ted=joker=0
+				
 		elif (("fine" in read) or ("good" in read) or ("happy" in read)):
-			
 			if(rep==0):
 				pyttsx3.speak("Good. I am glad to hear that!")
 				pyttsx3.speak("What would you like to ask me?")
@@ -788,7 +952,7 @@ while done!=1 :
 		print("Enter your answer:",end=' ')
 		src=input()
 		if(("yes" in src) or ("y" in src) or ("sure" in src) or ("offcourse" in src)):
-			os.system("start \"\" https://github.com/PulkitVaish/code-snippets/blob/master/1cmd_based.py")
+			os.system("start \"\" https://github.com/PulkitVaish/code-snippets/blob/master/(Latest)-%3Ecmd(v2.2).py")
 		pyttsx3.speak("Goodluck and Have a nice day")
 		print("\n>>>Pied Piper Proprietary Software Limited<<<\n")
 		done =1
@@ -800,13 +964,21 @@ while done!=1 :
 		lost=input()
 		if(("yes" in lost) or ("y" in lost) or ("sure" in lost) or ("offcourse" in lost)):
 			pyttsx3.speak("Here is the list of all the currently available commands in this program!")
+			pgrm=["program","Windows Media Player","VLC Media Player","Calculator","Notepad","Command Prompt","MS Paint","Task Manager","Chrome Broswer","Internet Explore","Firefox browser","Notepad++","WinRaR","CodeBlocks Editor","Picasa3","Discord","WebEx Meeting Client","GTA Sanandreas","Steam Client","Snipping Tool","Web Search","Oracle Virtual Box","Daemons Tools Lite","Chatbot"]
+			cmnd=["commands","wmplayer","vlc","calculator","notepad","cmd","paint","task manager","chrome","ie","firefox","Notepad++","winrar","codeblocks","picasa","discord","webex","gta sa","steam","screenshot","search","OVB","daemon","chat"]
 			print()
-			print("Program -->command\n")
-			print("Calculator -->calculator\nNotepad -->notepad\nCommand Prompt -->cmd\nMS Paint -->paint\nTask Manager -->task manager")
-			print("Chrome Broswer -->chrome\nInternet Explore -->ie\nFirefox browser -->firefox\nVLC player -->vlc\nWindows Media Player -->windows media player")
-			print("Notepad++ -->Notepad++\nWinRaR -->winrar\nCodeBlocks Editor -->codeblocks\nPicasa3 -->picasa")
-			print("Discord -->discord\nWebEx Meeting Client -->webex\nGTA Sanandreas -->gta sa\nSteam Client -->steam\nSnipping Tool -->screenshot")
-			print("Web Search -->search\nOracle Virtual Box -->OVB\nDaemons Tools Lite -->daemon\nChatbot -->chat")
+			i=0
+			while i<=23:
+				j=1
+				l=20-len(pgrm[i])
+				print("%s"%pgrm[i],end='')
+				while j<=l:
+					print("-",end='')
+					j=j+1
+				print("-|  %s"%cmnd[i])
+				if(i==0):
+					print("------------------------------------")
+				i=i+1
 			list=1
 	
 	else :
@@ -823,7 +995,7 @@ while done!=1 :
 			print("Enter your answer:",end=' ')
 			src=input()
 			if(("yes" in src) or ("y" in src) or ("sure" in src) or ("offcourse" in src)):
-				os.system("start \"\" https://github.com/PulkitVaish/code-snippets/blob/master/(Latest)-%3Ecmd(v2.3).py")
+				os.system("start \"\" https://github.com/PulkitVaish/code-snippets/blob/master/(Latest)-%3Ecmd(v2.2).py")
 			pyttsx3.speak("Goodluck and Have a nice day")
 			print("\n>>>Pied Piper Proprietary Software Limited<<<\n")
 			done=1
