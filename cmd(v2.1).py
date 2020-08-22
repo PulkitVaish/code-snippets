@@ -9,6 +9,8 @@
 #This version of program uses pyttsx3 module's speak function to convey messages.
 #Pied piper is a fictional company part of my favourite sitcom "Silicon Valley"
 
+#This is the version 2.1 which includes ability to deal with negate sentences and fixes bugs of version 2.0
+
 import webbrowser
 
 
