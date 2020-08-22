@@ -5,6 +5,7 @@
 		     3.Use of split() function learned while updating.
 		     4.Increased the speed of vocal ticks for default narration.
 		     5.Added chat bot functionality(still very much in infancy).
+		     6.Cleaned up list of programs little bit
 
 Salient features of the chatbot :
 1.The jokes/facts order is always random meaning if u talk to it again it will not tell u the jokes in the same order.
