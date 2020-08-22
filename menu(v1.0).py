@@ -1,9 +1,9 @@
-#Welcome to my python program ver 4.0
+#Welcome to my python program ver 1.0
 #Written by Pulkit Vaish
 #This version of program uses pyttsx3 module's speak function to convey messages and is menu driven.
 #Note when using terminal inside a terminal, give 24 and exit commmands alternatively till the tiltle bar displays only file opened.
 #Pied piper is a fictional company,part of my favourite sitcom "Silicon Valley".
-
+#This is the menu based program where users are shown different options they have.
 
 import webbrowser
 
@@ -18,9 +18,9 @@ voiceEngine.setProperty('rate', newVoiceRate)
 import os
 
 print("_________________________________________________________________________________________________________________")
-print("------------------------------->>> Welcome To Pied Piper Assitant Wizard v2.0 <<<--------------------------------",end='')
+print("------------------------------->>> Welcome To Pied Piper Assitant Wizard v1.0 <<<--------------------------------",end='')
 print("_________________________________________________________________________________________________________________")
-pyttsx3.speak("Welcome to Pied Piper Assistant Wizard version 2 point o!")
+pyttsx3.speak("Welcome to Pied Piper Assistant Wizard version 1 point o!")
 name="pullkith"#This is the adjusted spelling of my name for correct pronounciation(not compulsory)
 print("Hi, what is your name?")
 name2=input()
