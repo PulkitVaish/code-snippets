@@ -823,7 +823,7 @@ while done!=1 :
 			print("Enter your answer:",end=' ')
 			src=input()
 			if(("yes" in src) or ("y" in src) or ("sure" in src) or ("offcourse" in src)):
-				os.system("start \"\" https://github.com/PulkitVaish/code-snippets/blob/master/1cmd_based.py")
+				os.system("start \"\" https://github.com/PulkitVaish/code-snippets/blob/master/(Latest)-%3Ecmd(v2.3).py")
 			pyttsx3.speak("Goodluck and Have a nice day")
 			print("\n>>>Pied Piper Proprietary Software Limited<<<\n")
 			done=1
