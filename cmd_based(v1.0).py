@@ -1,4 +1,4 @@
-#Welcome to my python program ver 1.0
+#Welcome to my python program ver 2.0
 #Written by Pulkit Vaish
 #This version of program uses pyttsx3 module's speak function to convey messages.
 #Pied piper is a fictional company part of my favourite sitcom "Silicon Valley"
@@ -20,9 +20,9 @@ voiceEngine.setProperty('voice', voice_id2)
 
 import os
 print("_________________________________________________________________________________________________________________")
-print("------------------------------->>> Welcome To Pied Piper Assistant Wizard v1.0 <<<-------------------------------",end='')
+print("------------------------------->>> Welcome To Pied Piper Assistant Wizard v2.0 <<<-------------------------------",end='')
 print("_________________________________________________________________________________________________________________")
-pyttsx3.speak("Welcome to Pied Piper Assistant Wizard Version 1 point O!")
+pyttsx3.speak("Welcome to Pied Piper Assistant Wizard Version 2 point O!")
 name="pullkith"#This is the adjusted spelling of my name for correct pronounciation(not compulsory)
 print("Hi, what is your name?")
 name2=input()
