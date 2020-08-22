@@ -1,11 +1,8 @@
 #Welcome to my python program ver 2.2
 
-""">>>Patch Notes<<<:1.Added functionality to deal with negate statements.
-		     2.Fixed several bugs related to termination of programs.
-		     3.Use of split() function learned while updating.
-		     4.Increased the speed of vocal ticks for default narration.
-		     5.Added chat bot functionality(still very much in infancy).
-
+""">>>Patch Notes<<<:1.Added chat bot functionality(still very much in infancy).
+		     2. Use of random() module learned while updating.
+		    		     
 Salient features of the chatbot :
 1.The jokes/facts order is always random meaning if u talk to it again it will not tell u the jokes in the same order.
 2.The jokes/facts told by the chatbot will always be different from each other and are unique in each pass.
@@ -15,6 +12,7 @@ Salient features of the chatbot :
 #Written by Pulkit Vaish
 #This version of program uses pyttsx3 module's speak function to convey messages.
 #Pied piper is a fictional company part of my favourite sitcom "Silicon Valley"
+#The chatbot is limited by its current source of information which is this file itself.
 
 import webbrowser	#To provide links to various websites.
 import time			#To generate timing for bad puns
