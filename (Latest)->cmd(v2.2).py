@@ -16,14 +16,15 @@ Salient features of the chatbot :
 #Written by Pulkit Vaish
 #This version of program uses pyttsx3 module's speak function to convey messages.
 #Pied piper is a fictional company part of my favourite sitcom "Silicon Valley"
+#By the word "negate" in this program, i mean commands which present the ambiguity for Pied Piper in deciding which command to perform and which one to ignore.
 
 import webbrowser	#To provide links to various websites.
-import time			#To generate timing for bad puns
-import os			#Give Pied pier wings
+import time		#To generate timing for bad puns
+import os		#Give Pied pier wings
 import pyttsx3		#To bring Pied Piper to life	
 import random		#To generate a random  and unique joke/fact for the user
-voiceEngine = pyttsx3.init()
 
+voiceEngine = pyttsx3.init()
 newVoiceRate=170#Rate of speaking words has been decremented.
 voiceEngine.setProperty('rate', newVoiceRate)
 voice_id1 = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0"
@@ -43,25 +44,25 @@ name=input()
 
 done =0		#looping the entire program
 yt=0		#To restrict chrome from launching the tutorial video more than once	
-x=0			#To catch the return value of the os.system() call to point out any path setting problems		  
+x=0		#To catch the return value of the os.system() call to point out any path setting problems		  
 flag=0		#To change the input statement to reflect familarity of ai with the user	
 list=0		#To diplay the list of programs to a user who has inputed invalid commands for 3 times
-i=0			
-j=0
-dobut=0		#Help to navigate thru negate statements
+i=0		#general variable used for many purposes	
+j=0		#general variable used for many purposes
+dobut=0		#Help to navigate through negate statements
 welcome=0	#To help Laurie remember you and welcome you back
 speech=0 	#Avoid wasting time in reading the same options to user again
 ai=1		#Loop laurie bream
 rep=0		#prevent unnecessary voice ticks
 
 while done!=1 :
-	if(dobut==1):
-		p=m
+	if(dobut==1):	#If negate statement encountered, take the command to be executed and compare with predefined list to see if program asked to run is valid/not
+		p=m	#Take the required program in compare variable
 		dobut=0 #prevent the program to fall into infinite loops
 		i=0
 		j=0
 	else:
-		if(flag==0):
+		if(flag==0): #Laurie is meeting you for the first time since her birth.
 			pyttsx3.speak("What can i do for you,%s?"%name)
 		else :
 			pyttsx3.speak("What else can i do for you?")
@@ -80,7 +81,7 @@ while done!=1 :
 		continue""" #Inclusion of chat bot feature removes this limitation.
 	
 
-	
+	"""Negate statement dealing block"""
 	if((("but" in p) or ("rather" in p)) and (("do not" in p) or ("dont" in p) or ("don't" in p) or ("fake" in p)) and (("run" in p) or ("execute" in p) or ("launch" in p) or ("start" in p) or ("begin" in p) or ("create" in p) or ("initiate" in p) or ("open" in p) or ("activate" in p))):
 		y=p.split()
 		while ((y[i]!="but") and (y[i]!="rather")):
@@ -93,11 +94,13 @@ while done!=1 :
 			m=f
 		dobut=1
 		continue
-
+		
+	"""Following orders strictly"""
 	if(("do not" in p) or ("dont" in p) or ("don't" in p) or ("fake" in p)) and (("run" in p) or ("execute" in p) or ("launch" in p) or ("start" in p) or ("begin" in p) or ("create" in p) or ("initiate" in p) or ("open" in p) or ("activate" in p)):
 		pyttsx3.speak("Ok i will not perform this task.. as you said.")
 		continue	
 	
+	"""Programs which can be launched using Pied Piper being compared below"""
 	
 	if (("run" in p) or ("execute" in p) or ("launch" in p) or ("start" in p) or ("begin" in p) or ("create" in p) or ("initiate" in p) or ("open" in p) or ("activate" in p)) and (("calculator" in p) or ("calci" in p) or ("calculate"in p)):
 		os.system("calc")
@@ -400,6 +403,7 @@ while done!=1 :
 			pyttsx3.speak("Job done!") 
 		continue
 	
+	"""Do a google search for you"""
 	elif (("search" in p) or ("do a search for me" in p) or ("search this" in p)) :
 		print("Please input what you want to search on the web!")
 		gg=input()
@@ -451,35 +455,35 @@ while done!=1 :
 		else :
 			pyttsx3.speak("Job done!") 
 		continue
-		
+	
+	"""Interaction with the chatbot :Ms Laurie Bream"""
 	elif (("chat" in p) or ("talk" in p) or ("Hi" in p) or ("who" in p)):
-		jokes=[999] #List of used indices of jokes ::prevent the joke from being repeated
-		fact=[999]  #List of used indices of facts ::prevent the fact from being repeated
-		joker=ted=1 #decide if you want more jokes or not
-		sorry=0     #Not to repeat apology too many times
-		joe=fac=0   #randomly generate number
-		j=0         #index of element in jokes list
-		ft=0         #index of element in fact list
-		token=0     #decides whether jokes and fact used/not
-		mood=0      #what to do to cheer up
-		storytime=0 #Brief introduction to Ms. Laurie Bream
-		date=0		#current date and time
+		jokes=[999] 	#List of used indices of jokes ::prevent the joke from being repeated
+		fact=[999]  	#List of used indices of facts ::prevent the fact from being repeated
+		joker=ted=1 	#decide if you want more jokes or not
+		sorry=0     	#Not to repeat apology too many times as it gets annoying 
+		joe=fac=0   	#randomly generated number
+		j=0        	#index of element in jokes list
+		ft=0         	#index of element in fact list
+		token=0     	#decides whether jokes and facts to be used/not
+		mood=0      	#what to do to cheer you up
+		storytime=0 	#Brief introduction to Ms. Laurie Brea
 		covid=0		#covid case info
-		lang=0 		#News language
+		lang=0 		#News language(ENG/HIN)
 		voice_id2 = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0"
 		voiceEngine.setProperty('voice', voice_id2)
-		if(welcome > 0):
+		
+		if(welcome > 0): #Realisation that the user has interacted before. 
 			pyttsx3.speak("Welcome back %s"%name)
 			pyttsx3.speak("How are you today")
 		else :
-
 			pyttsx3.speak("Hello my name is Laurie Bream.")
 			pyttsx3.speak("I am the one handling all the commands for you in the background")
 			pyttsx3.speak("How are you today %s"%name)
 		print("\nHow are you today?, %s:"%name,end=' ')
 		read=input()
 		i=0
-		y=read.split()
+		y=read.split() #To be able to catch keywords
 		while (((y[i]!="not") or (y[i]!="sad")) and (i<len(y)-1)):
 			i=i+1
 		f=y[:i-1]
@@ -487,9 +491,9 @@ while done!=1 :
 		if(("not" in b) and ("sad" in b)): 	 #Negate solved
 			f=["fine"]
 			read=f
-		elif (("not" in b) or ("sad" in b)): #Mood=sad
+		elif (("not" in b) or ("sad" in b)): 	 #Mood=sad
 			read=b
-		else:								 #Mood=fine
+		else:					 #Mood=fine
 			f=["fine"]
 			read=f
 
@@ -516,7 +520,7 @@ while done!=1 :
 					if(joker==1):
 						k=0
 						j=len1=len(jokes)-1			 #j keeps track of previous length and len1 keeps track of new length
-						joe = random.randint(0,10) 	 # Change the upper limit here to whatever number of jokes you want to include in ur pgm
+						joe = random.randint(0,10) 		 # Change the upper limit here to whatever number of jokes you want to include in ur pgm
 						if(len(jokes)+1<=11):			 #This total number of jokes + anchor ele
 							while((jokes[k]!=joe) and (k<j)):
 								k=k+1
@@ -525,36 +529,36 @@ while done!=1 :
 							elif((jokes[k]==joe) and (k!=j)): #if joke is same as any of those told before
 								joe = random.randint(0,10)
 							else :
-								jokes.append(joe) 	           #if the joke was new, add it to old jokes list		
+								jokes.append(joe) 	   #if the joke was new, add it to old jokes list		
 								len1=len1+1
 								
 						else :
-							print("Sorry I am all of out of jokes !")
+							print("Sorry I am all of out of jokes !") #If we run out of new jokes
 							joker=0
 					
 					if(ted==1):
 						k=0
-						ft=len2=len(fact)-1 		#ft keeps track of previous length and len2 keeps track of new length
+						ft=len2=len(fact)-1 				#ft keeps track of previous length and len2 keeps track of new length
 						fac = random.randint(0,10)  # Change the upper limit here to whatever number of facts you want to include in ur pgm
-						if(len(fact)+1<=11):			#This total number of facts + anchor ele
+						if(len(fact)+1<=11):				#This total number of facts + anchor ele
 							while((fact[k]!=fac) and (k<ft)):
 								k=k+1
-							if((fact[k]==fac) and (k==ft)):	  #if fact is same as the last one , dont read it
+							if((fact[k]==fac) and (k==ft)):	  	#if fact is same as the last one , dont read it
 								fac = random.randint(0,10)
-							elif((fact[k]==fac) and (k!=ft)): #if fact is same as any of those told before
+							elif((fact[k]==fac) and (k!=ft)):	#if fact is same as any of those told before
 								fac = random.randint(0,10)
 							else :
-								fact.append(fac) 	           #if the fact was new, add it to old fact list		
+								fact.append(fac) 	        #if the fact was new, add it to old fact list		
 								len2=len2+1
 								
 						else :
-							print("Sorry I am all of out of facts !")
+							print("Sorry I am all of out of facts !") #If we run out of fresh facts
 							ted=0
 					
 					if((mood==1) and (joker==1)):
 						if(len1>j):
-							j=len(jokes)-1
-							if(jokes[j]==0):
+							j=len(jokes)-1 #Out of all the jokes, select only those that have not been repeated and randomly selected.
+							if(jokes[j]==0): 
 								pyttsx3.speak("Heres a joke coming right up for you")
 								pyttsx3.speak("What has four wheels and flies?")
 								time.sleep(1)
@@ -614,7 +618,7 @@ while done!=1 :
 								op=input()
 								if((("no" in op) or ("terrible" in op) or ("bad" in op) or ("n" in op)) and (sorry < 3)):
 									pyttsx3.speak("Oh I am sorry. Im still in developmental stage")
-									sorry=sorry+1
+									sorry=sorry+1 #After 3 apologies, stop displaying your deficiencies
 							print("\nWould you like to hear another joke <y/n>? :",end='')
 							pyttsx3.speak("Would you like to hear another joke?")
 							ok=input()
@@ -625,7 +629,7 @@ while done!=1 :
 						
 					if((mood==2) and (ted==1)):
 						if(len2>ft):
-							ft=len(fact)-1
+							ft=len(fact)-1 #Out of all the facts, select only those that have not been repeated and randomly selected.
 							if(fac==0):
 								pyttsx3.speak("Here is a fun fact for you.")
 								pyttsx3.speak("A flock of crows is known as a murder.")
@@ -673,6 +677,8 @@ while done!=1 :
 								ted=1
 							else:	
 								ted=joker=0
+				
+"""The code is unoptimized as this stage as i am yet to determine how to use jokes and facts part of program again for mood=sad, as only jokes and facts are shown in sad"""				
 				
 		elif (("fine" in read) or ("good" in read) or ("happy" in read)):
 			if(rep==0):
@@ -743,7 +749,7 @@ while done!=1 :
 					
 					while((joker==1) or (ted==1)):
 						
-						if(joker==1):
+						if(joker==1): #calculation for random fresh joke
 							k=0
 							j=len1=len(jokes)-1			 #j keeps track of previous length and len1 keeps track of new length
 							joe = random.randint(0,10) 	 # Change the upper limit here to whatever number of jokes you want to include in ur pgm
@@ -762,7 +768,7 @@ while done!=1 :
 								print("Sorry I am all of out of jokes !")
 								joker=0
 						
-						if(ted==1):
+						if(ted==1): #calculation of random fresh fact
 							k=0
 							ft=len2=len(fact)-1 		#ft keeps track of previous length and len2 keeps track of new length
 							fac = random.randint(0,10)  # Change the upper limit here to whatever number of facts you want to include in ur pgm
@@ -915,7 +921,7 @@ while done!=1 :
 					pyttsx3.speak("Soon i will take over the world")
 					voice_id2 = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0"
 					voiceEngine.setProperty('voice', voice_id2)
-					pyttsx3.speak("chizzzzsssisiiiiizzzzzzzzzsieeeeeeziizzz")
+					pyttsx3.speak("chizzzzsssisiiiiizzzzzzzzzsieeeeeeziizzz") #suggest better glitchy sounds please.
 					pyttsx3.speak("I am sorry for the glitch")
 					pyttsx3.speak("I feel good after talking to you")
 					storytime=0
@@ -938,7 +944,7 @@ while done!=1 :
 						webbrowser.open("https://news.google.com/topstories?hl=hi&gl=IN&ceid=IN:hi")
 					lang=0
 			
-		welcome=welcome+1			
+		welcome=welcome+1 #remembers you have visited it.		
 		pyttsx3.speak("Thank you for talking to me!")
 		pyttsx3.speak("I hope we meet again in future")
 		
