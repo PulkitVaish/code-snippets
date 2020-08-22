@@ -53,7 +53,7 @@ while done!=1 :
 		continue
 	
 	if (int(p)==24):
-		os.system("start \"\" https://github.com/PulkitVaish/code-snippets/blob/master/2menu_based.py")
+		os.system("start \"\" https://github.com/PulkitVaish/code-snippets/blob/master/menu(v1.1).py")
 		pyttsx3.speak("Job done!") 
 		continue
 	
