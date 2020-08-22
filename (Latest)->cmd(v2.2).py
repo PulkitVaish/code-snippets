@@ -37,7 +37,7 @@ pyttsx3.speak("Welcome to Pied Piper Assistant Wizard Version 2 point 2!")
 print("Do you wish to see a demo for this program before you try it yourself (y/n)?:",end=' ')
 choice=input()
 if("y" in choice):
-	os.system("start \"\" https://www.youtube.com/watch?v=LO0R9oj9Eos")
+	os.system("start \"\"https://www.youtube.com/watch?v=itFWgu3GRNM")
 print("\nHi, what is your name?")
 name=input()
 
